@@ -7,4 +7,10 @@ describe("Login tests", () => {
     cy.get("#open-navigation-menu-mobile").click();
     cy.get("button").contains("Log out").click();
   });
+
+  it("Test 2: Login with usage of self created command", () => {
+    cy.visit("https://www.edu.goit.global/account/login");
+    cy.login("user888@gmail.com", "1234567890");
+    cy.logout();
+  });
 });
