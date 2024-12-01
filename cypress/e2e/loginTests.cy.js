@@ -1,3 +1,6 @@
+import loginPage from "../pages/Login";
+import homePage from "../pages/HomePage";
+
 describe("Login tests", () => {
   it("Test 1: Login without usage of self created command", () => {
     cy.visit("https://www.edu.goit.global/account/login");
@@ -12,5 +15,11 @@ describe("Login tests", () => {
     cy.visit("https://www.edu.goit.global/account/login");
     cy.login("user888@gmail.com", "1234567890");
     cy.logout();
+  });
+
+  it("Test 3: Login with usage of POP", () => {
+    loginPage.visit();
+    loginPage.loginUser("user888@gmail.com", "1234567890");
+    homePage.logoutUser();
   });
 });
